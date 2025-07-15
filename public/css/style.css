@@ -1,0 +1,12 @@
+.item {
+    background-color: aquamarine;
+}
+
+.titulo-item {
+    color: darkblue;
+    font-weight: bold;
+}
+
+.ingredientes-item {
+    font-style: italic;
+}
