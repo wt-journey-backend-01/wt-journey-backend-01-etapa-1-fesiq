@@ -1,49 +1,54 @@
 <sup>Esse é um feedback gerado por IA, ele pode conter erros.</sup>
 
-Você tem 7 créditos restantes para usar o sistema de feedback AI.
+Você tem 9 créditos restantes para usar o sistema de feedback AI.
 
 # Feedback para fesiq:
 
-Nota final: **20.2/100**
+Nota final: **86.2/100**
 
-# Feedback para o Desafio de Servidor Express.js 🚀
+Olá, fesiq! 🌟
 
-Olá, fesiq! 😊 Primeiro, quero parabenizá-lo pelo esforço que você colocou nesse desafio. É sempre um grande passo aprender a programar, e você fez um ótimo trabalho até agora! Vamos conversar sobre os pontos positivos e algumas áreas que podem ser melhoradas. 
+Primeiramente, parabéns pela sua nota de **86.2/100**! Isso é um grande reflexo do seu esforço e dedicação. Vamos juntos analisar seu código e entender como podemos aprimorá-lo ainda mais. 🚀
 
-## 🎉 Conquistas Bônus 
+### 🎉 Conquistas Bônus
+Antes de mergulharmos nas áreas que precisam de atenção, quero destacar algumas vitórias incríveis que você alcançou:
+- Você utilizou corretamente as tags `<label>` e o atributo `id` nos inputs 'nome' e 'ingredientes' na rota `/sugestao`. Isso é super importante para acessibilidade e usabilidade! 👏
+- Também fez o mesmo para os inputs 'nome', 'email', 'assunto' e 'mensagem' do formulário na rota `/contato (GET)`. Excelente trabalho! 🎈
 
-Começando pelo que você fez bem, eu notei que você utilizou corretamente as tags `<label>` e o atributo `id` nos inputs 'nome' e 'ingredientes' na rota `/sugestao`. Isso é um ótimo exemplo de boas práticas em acessibilidade e usabilidade! 👏 Continue assim!
+### 🧐 Análise das Áreas a Melhorar
+Agora, vamos explorar os pontos que precisam de atenção. Percebi que você tem requisitos relacionados à rota `/sugestao` que não estão atendidos. Vamos investigar:
 
-## 🚧 Análise dos Requisitos
+1. **Rota `/sugestao` não implementada:** 
+   - Você não tem uma rota `app.get('/sugestao', ...)` em seu código. Isso é fundamental porque vários requisitos estão relacionados a essa rota, como retornar um código de status 200 e exibir o nome e os ingredientes enviados via query string. 
+   - Para resolver isso, você deve criar essa rota! Que tal começar com algo assim?
+     ```javascript
+     app.get('/sugestao', (req, res) => {
+       const { nome, ingredientes } = req.query;
+       res.send(`
+         <h1>Sugestão recebida de ${nome}!</h1>
+         <p>Ingredientes: ${ingredientes}</p>
+         <a href="/">Voltar para a página inicial</a>
+       `);
+     });
+     ```
+   - Isso atende os requisitos e garante que a âncora para a rota raiz `/` esteja presente! 🏠
 
-Agora, vamos mergulhar nos pontos que precisam de atenção. Percebi que vários requisitos para a sua rota `/contato` não funcionaram como esperado. Vamos analisar juntos:
+2. **Rota `/contato (POST)` não exibe a mensagem do formulário:**
+   - No seu código, você está apenas exibindo o nome, email e assunto na resposta do POST. O requisito menciona que você deve também exibir a `mensagem` enviada no formulário. 
+   - Para corrigir isso, basta adicionar a mensagem na sua resposta:
+     ```javascript
+     res.send(`
+       <h1>Recebemos a sua sugestão, ${nome}. Obrigado!</h1>
+       <p>Email: ${email}</p>
+       <p>Assunto: ${assunto}</p>
+       <p>Mensagem: ${mensagem}</p>
+     `);
+     ```
 
-1. **Rota `/contato`**: Você implementou a rota `app.get('/contato', ...)`, então isso está correto! 🎉 Agora, precisamos garantir que a página HTML que você está retornando contenha todos os campos de input exigidos. Vamos verificar isso!
+3. **Falta de âncora na rota `/contato (POST)` para a página raiz `/`:**
+   - Similar ao ponto anterior, é importante que a página de resposta do formulário também tenha uma âncora que leve de volta à página inicial. Você pode adicionar isso na resposta do POST, assim como fizemos no exemplo anterior.
 
-2. **Campos de Input Faltando**: Para o formulário na página `contato.html`, os requisitos pedem por vários campos com o atributo `name` correto. Se a página não possui esses campos, a falha pode estar na estrutura do arquivo HTML em si. Não vimos a implementação do HTML, mas é importante garantir que você tenha:
-   - Um campo de input ou textarea com `name="nome"`.
-   - Um campo de input do tipo email ou texto com `name="email"`.
-   - Um campo de input ou textarea com `name="assunto"`.
-   - Um campo de input ou textarea com `name="mensagem"`.
-   - Um botão do tipo submit.
-   - É essencial também incluir uma âncora que leve de volta à rota raiz `/`.
+### 🌟 Considerações Finais
+Seu código já tem uma boa estrutura e você está no caminho certo! O importante agora é implementar as rotas que estão faltando e garantir que as respostas estejam completas. Cada ajuste que você faz traz você mais perto de dominar o Express.js, e eu estou aqui para te ajudar nesse caminho! 
 
-3. **Rota `/sugestao`**: Para a rota `/sugestao`, você precisa implementar a lógica que exibe o nome e os ingredientes enviados via query string. Isso não apenas garante que a rota esteja funcionando, mas também que a informação seja exibida corretamente na página HTML.
-
-4. **Status Code e Respostas**: Para a rota `/contato` no método POST, você precisa garantir que a resposta tenha um status code 200 e que retorne uma página HTML ou faça um redirecionamento para `/contato-recebido`. Essa parte é fundamental para garantir que a comunicação com o usuário seja clara e que ele receba um feedback sobre a sua mensagem.
-
-## 🔍 Problemas que Geraram Descontos
-
-Agora, vamos abordar os problemas que causaram descontos na sua nota:
-
-- **Name Attributes**: O formulário na página `contato.html` não possui os campos de input com os `name attributes` corretos. Isso é crucial para que os dados sejam enviados corretamente quando o formulário for submetido. Verifique se todos os campos possuem os `name` adequados!
-  
-- **Arquivos Estáticos**: Notei que o seu `.gitignore` não contém a pasta `node_modules`. É importante adicionar isso para evitar que arquivos desnecessários sejam versionados no seu repositório. Isso mantém seu projeto mais limpo e organizado.
-
-## 🏁 Considerações Finais
-
-Fesiq, você está no caminho certo! Aprender a construir um servidor com Express.js pode ser desafiador, mas cada erro é uma oportunidade de aprender algo novo. 🚀
-
-Continue praticando e não hesite em revisar a estrutura do HTML que está sendo retornada nas suas rotas, bem como os métodos de resposta para cada um deles. Estou aqui para ajudar sempre que você precisar. Vamos em frente! 💪✨
-
-Se precisar de mais esclarecimentos ou se quiser discutir algum ponto específico, estou à disposição!
+Continue assim, e não hesite em perguntar se tiver mais dúvidas. Estou torcendo por você! 💪✨
