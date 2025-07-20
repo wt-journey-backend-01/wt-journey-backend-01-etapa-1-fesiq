@@ -23,6 +23,7 @@ app.post('/contato', (req, res) => {
     <p>Assunto: ${assunto}</p>
     <p>Mensagem: ${mensagem}</p>
   `);
+  console.log(`Mensagem recebida: ${req.body}`);
 });
 
 app.get('/sugestao', (req, res) => {
