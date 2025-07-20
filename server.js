@@ -25,6 +25,14 @@ app.post('/contato', (req, res) => {
   `);
 });
 
+app.get('/sugestao', (req, res) => {
+  res.send(`
+    <h1>Recebemos a sua sugestão, ${req.query.nome}, obrigado!</h1>
+    <p>Ingredientes: ${req.query.ingredientes}</p>
+  `);
+  console.log(`Sugestão recebida: ${req.query}`);
+});
+
 app.get('/api/lanches', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'data', 'lanches.json'));
 });
