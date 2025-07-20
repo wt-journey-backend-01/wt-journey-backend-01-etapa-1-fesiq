@@ -30,6 +30,7 @@ app.get('/sugestao', (req, res) => {
   res.send(`
     <h1>Recebemos a sua sugestão, ${req.query.nome}, obrigado!</h1>
     <p>Ingredientes: ${req.query.ingredientes}</p>
+    <a href="/">Voltar ao cardápio</a>
   `);
 });
 
