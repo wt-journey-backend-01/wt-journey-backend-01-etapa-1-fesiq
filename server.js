@@ -21,6 +21,7 @@ app.post('/contato', (req, res) => {
     <h1>Recebemos a sua sugestão, ${nome}. Obrigado!</h1>
     <p>Email: ${email}</p>
     <p>Assunto: ${assunto}</p>
+    <p>Mensagem: ${mensagem}</p>
   `);
 });
 
