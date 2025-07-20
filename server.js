@@ -22,6 +22,7 @@ app.post('/contato', (req, res) => {
     <p>Email: ${email}</p>
     <p>Assunto: ${assunto}</p>
     <p>Mensagem: ${mensagem}</p>
+    <a href="/">Voltar ao cardápio</a>
   `);
 });
 
