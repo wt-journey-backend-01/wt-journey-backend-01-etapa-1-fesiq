@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 <body>
-    <h1>DevBurger - Cardápio</h1>
+   <h1><a href="/">DevBurger</a> - Cardápio</h1>
     <div class="cardapio">
         <div class="item">
             <h2 class="titulo-item">Classic Burger</h2>
@@ -23,7 +23,7 @@
     </div>
 
     <h2>Sugira um novo sabor!</h2>
-    <form>
+    <form id="sugestao-form " action="/sugestao" method="POST">
         <label for="nome">Nome do item sugerido:</label>
         <input type="text" id="nome" name="nome">
         <br>
