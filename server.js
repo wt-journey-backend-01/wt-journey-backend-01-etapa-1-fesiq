@@ -31,7 +31,6 @@ app.get('/sugestao', (req, res) => {
     <h1>Recebemos a sua sugestão, ${req.query.nome}, obrigado!</h1>
     <p>Ingredientes: ${req.query.ingredientes}</p>
   `);
-  console.log(`Sugestão recebida: ${req.query.nome}, Ingredientes: ${req.query.ingredientes}\n ---------------`);
 });
 
 app.get('/api/lanches', (req, res) => {
