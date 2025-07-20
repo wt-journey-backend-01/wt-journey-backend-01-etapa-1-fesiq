@@ -14,11 +14,6 @@ app.get('/', (req, res) => {
 app.get('/contato', (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'contato.html'));
 });
-/* enunciado a partir daqui ---
-| ```/contato```| Serve a página de de contato (contato.html), que exibe um formulário para que os clientes possam enviar mensagens. | ```GET```| ```200```| arquivo contato.html. | - |
-
-| ```/contato```| Recebe os dados do cliente e do contato fornecidos no formulário da página de contato. O servidor processa esses dados e exibe a página de contato recebido. | ```POST```| ```200```| págna HTML gerada dinamicamente contendo os dados do cliente passados no formulário. | Exemplo de payload abaixo |
---- enunciado até aqui*/
 
 app.post('/contato', (req, res) => {
   const { nome, email, assunto, mensagem } = req.body;
